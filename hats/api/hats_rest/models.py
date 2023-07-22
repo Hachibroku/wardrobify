@@ -10,6 +10,7 @@ class LocationVO(models.Model):
     def __str__(self):
         return self.closet_name
 
+
 class Hat(models.Model):
     name = models.CharField(max_length=100)
     fabric = models.CharField(max_length=100)
