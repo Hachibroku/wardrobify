@@ -32,7 +32,7 @@ class ShoeEncoder(ModelEncoder):
 
 
 @require_http_methods(["GET", "POST"])
-def api_list_shoes(request, bin_vo_id=None):
+def list_shoes(request, bin_vo_id=None):
     if request.method == "GET":
         if bin_vo_id is not None:
             shoes = Shoe.objects.filter(bin=bin_vo_id)
@@ -63,8 +63,8 @@ def api_list_shoes(request, bin_vo_id=None):
         )
 
 
-@require_http_methods(["GET","PUT", "DELETE"])
-def api_show_shoes(request, pk):
+@require_http_methods(["GET", "PUT", "DELETE"])
+def shoe_detail(request, pk):
     if request.method == "GET":
         try:
             shoe = Shoe.objects.get(id=pk)

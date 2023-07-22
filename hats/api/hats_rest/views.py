@@ -33,7 +33,7 @@ class HatEncoder(ModelEncoder):
 
 
 @require_http_methods(["GET", "POST"])
-def api_list_hats(request, location_vo_id=None):
+def list_hats(request, location_vo_id=None):
     if request.method == "GET":
         if location_vo_id is not None:
             hats = Hat.objects.filter(location=location_vo_id)
@@ -65,7 +65,7 @@ def api_list_hats(request, location_vo_id=None):
 
 
 @require_http_methods(["GET","PUT", "DELETE"])
-def api_show_hats(request, pk):
+def hat_detail(request, pk):
     if request.method == "GET":
         try:
             hat = Hat.objects.get(id=pk)
