@@ -30,7 +30,7 @@ def poll():
                             'bin_size': bin['bin_size'],
                         }
                     )
-                print(f'Imported {len(bins)} bins')
+                print(f'Imported {len(bins["bins"])} bins')
             else:
                 print(f'Error in API call: {response.status_code}')
         except Exception as e:

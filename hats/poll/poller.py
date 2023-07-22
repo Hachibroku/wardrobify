@@ -30,7 +30,7 @@ def poll():
                             'shelf_number': location['shelf_number'],
                         }
                     )
-                print(f'Imported {len(locations)} locations')
+                print(f'Imported {len(locations["locations"])} locations')
             else:
                 print(f'Error in API call: {response.status_code}')
         except Exception as e:
