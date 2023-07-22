@@ -64,7 +64,7 @@ def list_hats(request, location_vo_id=None):
         )
 
 
-@require_http_methods(["GET","PUT", "DELETE"])
+@require_http_methods(["GET", "PUT", "DELETE"])
 def hat_detail(request, pk):
     if request.method == "GET":
         try:
