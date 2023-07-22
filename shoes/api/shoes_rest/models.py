@@ -26,4 +26,4 @@ class Shoe(models.Model):
         return self.model_name
 
     class Meta:
-        ordering = ("style", "model_name")
+        ordering = ("manufacturer", "model_name")
