@@ -64,7 +64,6 @@ def api_list_hats(request, location_vo_id=None):
         )
 
 
-
 @require_http_methods(["GET","PUT", "DELETE"])
 def api_show_hats(request, pk):
     if request.method == "GET":
@@ -88,7 +87,7 @@ def api_show_hats(request, pk):
             props = ["fabric", "style", "color", "picture_url", "location"]
             for prop in props:
                 if prop in content:
-                    settattr(hat, prop, content[prop])
+                    setattr(hat, prop, content[prop])
             hat.save()
             return JsonResponse(
                 hat,

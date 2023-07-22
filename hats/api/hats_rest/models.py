@@ -21,7 +21,7 @@ class Hat(models.Model):
         LocationVO,
         related_name="hats",
         on_delete=models.CASCADE,
-        null=True
+        null=True,
     )
 
     def __str__(self):
