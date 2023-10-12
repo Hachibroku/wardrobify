@@ -1,10 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
 class LocationVO(models.Model):
-    import_href = models.CharField(max_length=200, unique=True)
-    closet_name = models.CharField(max_length=100)
-    section_number = models.PositiveBigIntegerField(null=True)
+    import_href = models.CharField(max_length=100, unique=True)
+    closet_name = models.CharField(max_length=100, null=True)
+    section_number = models.PositiveSmallIntegerField(null=True)
     shelf_number = models.PositiveSmallIntegerField(null=True)
 
     def __str__(self):
@@ -12,12 +12,11 @@ class LocationVO(models.Model):
 
 
 class Hat(models.Model):
-    name = models.CharField(max_length=100)
     fabric = models.CharField(max_length=100)
     style = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     picture_url = models.URLField(null=True)
-    location = models.ForeignKey(
+    location_id = models.ForeignKey(
         LocationVO,
         related_name="hats",
         on_delete=models.CASCADE,
@@ -25,7 +24,7 @@ class Hat(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.fabric
 
     class Meta:
-        ordering = ("style",)
+        ordering = ("fabric",)

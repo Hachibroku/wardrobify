@@ -1,29 +1,30 @@
 from django.db import models
 
 
+# Create your models here.
+
+
 class BinVO(models.Model):
-    import_href = models.CharField(max_length=100, unique=True)
-    closet_name = models.CharField(max_length=100)
+    closet_name = models.CharField(max_length=100, null=True)
     bin_number = models.PositiveSmallIntegerField(null=True)
     bin_size = models.PositiveSmallIntegerField(null=True)
+    import_href = models.URLField(max_length=200, null=True)
 
-    def __str__(self):
-        return self.closet_name
+
 
 class Shoe(models.Model):
-    manufacturer = models.CharField(max_length=100)
-    model_name = models.CharField(max_length=100)
+    manufacturer = models.CharField(max_length=200)
+    model_name = models.CharField(max_length=200)
     color = models.CharField(max_length=100)
     picture_url = models.URLField(null=True)
     bin = models.ForeignKey(
         BinVO,
         related_name="shoes",
         on_delete=models.CASCADE,
-        null=True,
     )
 
     def __str__(self):
-        return self.model_name
+        return self.name
 
     class Meta:
-        ordering = ("manufacturer", "model_name")
+        ordering = ("model_name",)
